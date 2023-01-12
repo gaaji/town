@@ -4,6 +4,7 @@ import com.gaaji.town.domain.AuthId;
 import com.gaaji.town.domain.AuthTown;
 import com.gaaji.town.domain.AuthTownId;
 import com.gaaji.town.domain.TownId;
+import java.util.List;
 import java.util.NoSuchElementException;
 import javax.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +38,6 @@ public class AuthTownRepositoryImpl implements AuthTownRepository{
             throw new RuntimeException(); // TODO 조회 실패 custom exception 생성
         }
     }
-
     @Override
     public boolean findAuthTown(AuthTownId authTownId) {
         try {
@@ -48,5 +48,14 @@ public class AuthTownRepositoryImpl implements AuthTownRepository{
             e.printStackTrace(); //
             throw new RuntimeException(); // 조회 실패 exception 발생
         }
+    }
+
+    @Override
+    public List<TownId> findByAuthId(AuthId authId) {
+
+        return em.createQuery("select at.authTownId.townId from AuthTown at "
+                + "where at.authTownId.authId =: authId", TownId.class)
+                .setParameter("authId", authId)
+                .getResultList();
     }
 }

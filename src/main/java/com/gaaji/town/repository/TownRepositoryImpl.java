@@ -22,4 +22,9 @@ public class TownRepositoryImpl implements TownRepository{
     public Optional<Town> findByAddress(Address address) {
         return jpaTownRepository.findTownByAddress(address);
     }
+    @Override
+    public Town findByTownId(TownId townId) {
+        return jpaTownRepository.findById(townId)
+                .orElseThrow();
+    }
 }

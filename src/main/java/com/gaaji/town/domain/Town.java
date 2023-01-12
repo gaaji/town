@@ -22,8 +22,14 @@ public class Town {
     public static Town of(TownId townId, Address address){
         return new Town(townId, address);
     }
-
     public String getTownId(){
         return townId.getId();
+    }
+
+    public String getAddress1(){
+        return address.getAddress1();
+    }
+    public String getAddress2(){
+        return address.getAddress2();
     }
 }
