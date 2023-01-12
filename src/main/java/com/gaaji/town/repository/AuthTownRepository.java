@@ -4,6 +4,7 @@ import com.gaaji.town.domain.AuthId;
 import com.gaaji.town.domain.AuthTown;
 import com.gaaji.town.domain.AuthTownId;
 import com.gaaji.town.domain.TownId;
+import java.util.List;
 
 public interface AuthTownRepository {
 
@@ -13,4 +14,6 @@ public interface AuthTownRepository {
 
 
     boolean findAuthTown(AuthTownId authTownId);
+
+    List<TownId> findByAuthId(AuthId of);
 }
