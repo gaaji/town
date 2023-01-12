@@ -2,6 +2,7 @@ package com.gaaji.town.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class TownId implements Serializable {
 
+    @Column(name = "town_id")
     private String id;
 
     @Override
@@ -24,6 +26,11 @@ public class TownId implements Serializable {
         }
         TownId townId1 = (TownId) o;
         return Objects.equals(id, townId1.id);
+    }
+
+
+    public String getId() {
+        return id;
     }
 
     @Override

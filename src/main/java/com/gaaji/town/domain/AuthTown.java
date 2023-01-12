@@ -11,11 +11,10 @@ import lombok.NoArgsConstructor;
 @Entity
 public class AuthTown {
 
-    @EmbeddedId
-    private AuthId authId;
+
 
     @EmbeddedId
-    private TownId townId;
+    private AuthTownId authTownId;
     private boolean authentication;
 
     public void authenticate(){
@@ -23,6 +22,7 @@ public class AuthTown {
     }
 
     public static AuthTown of(AuthId authId, TownId townId){
-        return new AuthTown(authId, townId,false);
+        return new AuthTown(AuthTownId.of(authId, townId),false);
+
     }
 }
