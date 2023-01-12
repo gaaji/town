@@ -2,6 +2,7 @@ package com.gaaji.town.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class AuthId implements Serializable {
 
+    @Column(name = "auth_id")
     private String id;
 
     @Override
