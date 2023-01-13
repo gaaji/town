@@ -16,4 +16,8 @@ public interface AuthTownRepository {
     boolean findAuthTown(AuthTownId authTownId);
 
     List<TownId> findByAuthId(AuthId of);
+
+    long countAuthTownByAuthId(AuthId authId);
+
+    void delete(AuthId authId, TownId townId);
 }

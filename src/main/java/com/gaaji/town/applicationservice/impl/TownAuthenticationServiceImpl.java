@@ -1,5 +1,6 @@
-package com.gaaji.town.applicationservice;
+package com.gaaji.town.applicationservice.impl;
 
+import com.gaaji.town.applicationservice.TownAuthenticationService;
 import com.gaaji.town.domain.AuthId;
 import com.gaaji.town.domain.AuthTown;
 import com.gaaji.town.domain.AuthTownId;
