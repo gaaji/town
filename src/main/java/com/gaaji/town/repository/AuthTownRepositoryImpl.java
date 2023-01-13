@@ -86,4 +86,11 @@ public class AuthTownRepositoryImpl implements AuthTownRepository{
                 .setParameter("from", from)
                 .executeUpdate();
     }
+
+	@Override
+	public long countAuthTownByAuthIdAndTownId(AuthId authId, TownId townId) {
+		 return em.createQuery("select COUNT(at.authTownId.townId) from AuthTown at "
+	                + "where at.authTownId.authId =: authId" +"and at.authTownId.townId = :townId", Long.class)
+	                .setParameter("authId", authId).setParameter("townId", townId).getSingleResult();
+	}
 }

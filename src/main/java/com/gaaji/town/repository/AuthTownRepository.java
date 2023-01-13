@@ -22,4 +22,6 @@ public interface AuthTownRepository {
     void delete(AuthId authId, TownId townId);
 
     void updateTownByTownId(AuthId authId, TownId from, TownId to);
+
+	long countAuthTownByAuthIdAndTownId(AuthId of, TownId of2);
 }

@@ -22,7 +22,6 @@ public class TownDeleteController {
 
     @DeleteMapping("/{townId}")
     public ResponseEntity<Void> deleteTown(@RequestHeader String authId, @PathVariable("townId") String townId){
-
         townDeleteService.deleteTown(authId, townId);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
