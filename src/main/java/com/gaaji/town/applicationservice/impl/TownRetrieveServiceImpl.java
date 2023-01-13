@@ -1,5 +1,6 @@
-package com.gaaji.town.applicationservice;
+package com.gaaji.town.applicationservice.impl;
 
+import com.gaaji.town.applicationservice.TownRetrieveService;
 import com.gaaji.town.controller.dto.TownRetrieveResponse;
 import com.gaaji.town.domain.AuthId;
 import com.gaaji.town.domain.TownId;

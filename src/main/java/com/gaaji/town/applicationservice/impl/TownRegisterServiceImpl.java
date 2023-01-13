@@ -1,6 +1,7 @@
-package com.gaaji.town.applicationservice;
+package com.gaaji.town.applicationservice.impl;
 
 
+import com.gaaji.town.applicationservice.TownRegisterService;
 import com.gaaji.town.domain.Address;
 import com.gaaji.town.domain.AuthId;
 import com.gaaji.town.domain.Town;
@@ -27,7 +28,7 @@ public class TownRegisterServiceImpl implements TownRegisterService {
         Town town = townRepository.findByAddress(Address.of(address1,address2))
                 .orElseGet(() -> townRepository.save(Address.of(address1,address2)));
         // AuthTown 생성
+        // TODO 2개 초과는 저장 불가능.
         authTownRepository.save(AuthId.of(authId), TownId.of(town.getTownId()));
-
     }
 }
