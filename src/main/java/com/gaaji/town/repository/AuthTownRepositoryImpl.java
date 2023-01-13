@@ -75,4 +75,15 @@ public class AuthTownRepositoryImpl implements AuthTownRepository{
                 .executeUpdate();
 
     }
+
+    @Override
+    public void updateTownByTownId(AuthId authId, TownId from, TownId to) {
+        em.createQuery("update AuthTown at set at.authTownId.townId = :to "
+                        + " where at.authTownId.authId = :authId "
+                        + "and at.authTownId.townId = :from")
+                .setParameter("to", to)
+                .setParameter("authId", authId)
+                .setParameter("from", from)
+                .executeUpdate();
+    }
 }
