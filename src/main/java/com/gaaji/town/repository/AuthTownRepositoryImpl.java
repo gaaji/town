@@ -4,7 +4,7 @@ import com.gaaji.town.domain.AuthId;
 import com.gaaji.town.domain.AuthTown;
 import com.gaaji.town.domain.AuthTownId;
 import com.gaaji.town.domain.TownId;
-import com.gaaji.town.exception.NoSerchException;
+import com.gaaji.town.exception.NoSearchException;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -37,7 +37,7 @@ public class AuthTownRepositoryImpl implements AuthTownRepository{
                     .getSingleResult();
         } catch (NoSuchElementException e) {
             e.printStackTrace(); //
-            throw new NoSerchException(); // TODO 조회 실패 custom exception 생성
+            throw new NoSearchException(); // TODO 조회 실패 custom exception 생성
         }
     }
     @Override
