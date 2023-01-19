@@ -25,10 +25,4 @@ public class TownAuthenticationController {
             return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/{townId}")
-    public ResponseEntity<CheckAuthenticateResponse> checkAuthentication(@PathVariable("townId") String townId ,
-            @RequestHeader("authId") String authId){
-        boolean authentication = townAuthenticationService.checkAuthentication(townId, authId);
-        return ResponseEntity.ok(new CheckAuthenticateResponse(authentication));
-    }
 }
