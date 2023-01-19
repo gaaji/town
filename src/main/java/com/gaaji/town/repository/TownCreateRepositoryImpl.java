@@ -16,8 +16,7 @@ public class TownCreateRepositoryImpl implements TownCreateRepository{
     @Override
     public List<TownToken> findTownTokens(AuthId authId) {
 
-        return em.createQuery("select new com.gaaji.town.controller.dto.TownToken(at.authTownId.townId.id, t.address.address2, at.authentication) from AuthTown at "
-                + "join Town t on t.townId = at.authTownId.townId "
+        return em.createQuery("select new com.gaaji.town.controller.dto.TownToken(at.authTownId.townId.id,at.authentication) from AuthTown at "
                 + "where at.authTownId.authId =:authId "
                         + "order by at.authentication desc ", TownToken.class)
                 .setParameter("authId", authId)

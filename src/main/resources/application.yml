@@ -1,5 +1,8 @@
 
 spring:
+  application:
+    name: town-service
+
   h2:
     console:
       enabled: true
@@ -13,3 +16,11 @@ spring:
     defer-datasource-initialization: true
   config:
     import: secret.yml
+
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone : http://localhost:8761/eureka
