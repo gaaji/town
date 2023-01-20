@@ -1,6 +1,7 @@
 package com.gaaji.town.applicationservice.impl;
 
 import com.gaaji.town.applicationservice.TownRetrieveService;
+import com.gaaji.town.controller.dto.TownAddressResponse;
 import com.gaaji.town.controller.dto.TownRetrieveResponse;
 import com.gaaji.town.domain.AuthId;
 import com.gaaji.town.domain.TownId;
@@ -29,5 +30,10 @@ public class TownRetrieveServiceImpl implements
         }
 
         return townRetrieveResponse;
+    }
+
+    @Override
+    public TownAddressResponse retrieveTownAddress(String townId) {
+        return TownAddressResponse.of(townRepository.findByTownId(TownId.of(townId)).getAddress2());
     }
 }
