@@ -3,6 +3,7 @@ package com.gaaji.town.controller;
 import com.gaaji.town.applicationservice.TownEditService;
 import com.gaaji.town.controller.dto.TownEditRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +21,7 @@ public class TownEditController {
 
     @PatchMapping
     public ResponseEntity<Void> editTown(@RequestBody TownEditRequest dto,
-            @RequestHeader("authId") String authId){
+            @RequestHeader(HttpHeaders.AUTHORIZATION) String authId){
         townEditService.editTown(authId, dto.getOriginalTownId(), dto.getAddress1(), dto.getAddress2());
         return ResponseEntity.ok().build();
     }

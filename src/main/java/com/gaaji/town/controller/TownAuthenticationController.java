@@ -3,6 +3,7 @@ package com.gaaji.town.controller;
 import com.gaaji.town.applicationservice.TownAuthenticationService;
 import com.gaaji.town.controller.dto.CheckAuthenticateResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -20,7 +21,7 @@ public class TownAuthenticationController {
 
     @PatchMapping("/authentication/{townId}")
     public ResponseEntity<Void> authenticateTown(@PathVariable("townId") String townId ,
-            @RequestHeader("authId") String authId){
+            @RequestHeader(HttpHeaders.AUTHORIZATION) String authId){
             townAuthenticationService.authenticateTown(townId, authId);
             return ResponseEntity.ok().build();
     }
