@@ -2,6 +2,7 @@ package com.gaaji.town.controller;
 
 import com.gaaji.town.applicationservice.TownTokenCreateService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,7 @@ public class TownTownCreateController {
     private final TownTokenCreateService townTokenCreateService;
 
     @PostMapping("/token")
-    public ResponseEntity<Void> checkAuthentication(@RequestHeader("authId") String authId){
+    public ResponseEntity<Void> checkAuthentication( @RequestHeader(HttpHeaders.AUTHORIZATION) String authId){
         return ResponseEntity.status(HttpStatus.CREATED)
                 .header("X-TOWN-TOKEN", townTokenCreateService
                         .createAuthenticationToken(authId)).build();

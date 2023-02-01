@@ -5,6 +5,7 @@ import com.gaaji.town.controller.dto.TownAddressResponse;
 import com.gaaji.town.controller.dto.TownRetrieveResponse;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,7 @@ public class TownRetrieveController {
 
     @GetMapping
     public ResponseEntity<List<TownRetrieveResponse>> retrieveMyTown(
-            @RequestHeader("authId") String authId){
+            @RequestHeader(HttpHeaders.AUTHORIZATION) String authId){
         List<TownRetrieveResponse> towns = townRetrieveService.retrieveMyTown(authId);
         return ResponseEntity.ok(towns);
     }
